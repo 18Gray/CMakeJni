@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
-#include "com_example_lutao_cmakejni_MainActivity.h"
+#include "echo/com_example_lutao_cmakejni_MainActivity.h"
 
 
 JNIEXPORT jstring JNICALL Java_com_example_lutao_cmakejni_MainActivity_stringFromJNI
@@ -11,6 +11,7 @@ JNIEXPORT jstring JNICALL Java_com_example_lutao_cmakejni_MainActivity_stringFro
     std::string hello = "Hello from C++";
     return env->NewStringUTF(hello.c_str());
 }
+
 
 struct NativeWorkerArgs
 {
@@ -30,6 +31,7 @@ static jobject gObj = NULL;
 // Mutex instance
 static pthread_mutex_t mutex;
 
+// 重载该方法，可以获得JVM的接口指针
 jint JNI_OnLoad (JavaVM* vm, void* reserved)
 {
     // Cache the JavaVM interface pointer
