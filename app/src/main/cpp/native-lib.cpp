@@ -37,7 +37,7 @@ jint JNI_OnLoad (JavaVM* vm, void* reserved)
     // Cache the JavaVM interface pointer
     gVm = vm;
 
-    return JNI_VERSION_1_4;
+    return JNI_VERSION_1_6;
 }
 
 

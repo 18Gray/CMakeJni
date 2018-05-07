@@ -8,10 +8,15 @@ add_library( Echo
         SHARED
         src/main/cpp/echo/Echo.cpp
         )
+add_library( jnidynamicload
+        SHARED
+        src/main/cpp/jnidynamicload.cpp
+        )
 
 find_library( log-lib
               log )
 
 target_link_libraries( native-lib
                         Echo
+                        jnidynamicload
                        ${log-lib} )
